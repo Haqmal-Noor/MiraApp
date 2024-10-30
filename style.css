@@ -1,0 +1,168 @@
+/* General Styling */
+body,
+html {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background: #1c1b29;
+    overflow: hidden; /* Prevents scrolling */
+    font-family: Arial, sans-serif;
+    position: relative;
+}
+
+.content {
+    text-align: center;
+    z-index: 1; /* Ensures content is above stars */
+    position: relative; /* Establish a positioning context for the content */
+}
+span{
+    font-family: cursive;
+    position: absolute;
+    top: 20px;
+    left: 0;
+    color: white;
+}
+
+/* Animated Name Styling */
+.animated-name {
+    font-size: 3.5em;
+font-family: cursive;
+    color: #ffdd57;
+    text-shadow: 0px 0px 15px rgba(255, 221, 87, 0.8);
+    animation: glow 2s ease-in-out infinite,
+        float 6s ease-in-out infinite alternate;
+}
+
+@keyframes glow {
+    0%,
+    100% {
+        text-shadow: 0 0 15px rgba(255, 221, 87, 0.8),
+            0 0 30px rgba(255, 221, 87, 0.6);
+    }
+    50% {
+        text-shadow: 0 0 30px rgba(255, 221, 87, 1),
+            0 0 40px rgba(255, 221, 87, 0.8);
+    }
+}
+
+@keyframes float {
+    0% {
+        transform: translateY(0);
+    }
+    100% {
+        transform: translateY(-10px);
+    }
+}
+
+/* Message Styling */
+.message {
+    font-size: 1.2em;
+    color: #fffae3;
+    opacity: 0;
+    animation: fadeIn 3s ease-in-out forwards;
+    animation-delay: 1s;
+}
+
+@keyframes fadeIn {
+    to {
+        opacity: 1;
+    }
+}
+
+/* Enhanced Stars Styling */
+.star {
+    position: absolute;
+    bottom: 0;
+    width: 12px;
+    height: 6px;
+    background: rgba(255, 255, 255, 0.9);
+    border-radius: 50%;
+    box-shadow: 0 0 8px rgba(255, 255, 255, 0.8);
+    animation: floatUp 5s ease-in-out infinite, glowStar 2s ease-in-out infinite;
+}
+
+@keyframes floatUp {
+    to {
+        transform: translateY(-100vh);
+        opacity: 0;
+    }
+}
+
+@keyframes glowStar {
+    0%,
+    100% {
+        opacity: 0.9;
+    }
+    50% {
+        opacity: 0.5;
+    }
+}
+
+/* Stars Background Styling */
+.stars {
+    position: absolute; /* Changed to absolute to occupy full screen */
+    top: 0; /* Align to the top */
+    left: 0; /* Align to the left */
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: hidden; /* Prevent overflow from stars */
+    z-index: 0; /* Stars should be behind content */
+}
+
+.stars::before,
+.stars::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    background: radial-gradient(
+        circle,
+        rgba(199, 82, 82, 0.2) 1px,
+        transparent 1px
+    );
+    background-size: 50px 50px;
+    opacity: 0.7;
+    animation: driftStars 60s linear infinite, glowStars 4s ease-in-out infinite;
+}
+
+.stars::after {
+    opacity: 0.5;
+    animation-duration: 100s;
+}
+
+@keyframes driftStars {
+    from {
+        transform: translateY(0px);
+    }
+    to {
+        transform: translateY(-100px);
+    }
+}
+
+@keyframes glowStars {
+    0%,
+    100% {
+        filter: brightness(1);
+    }
+    50% {
+        filter: brightness(1.5);
+    }
+}
+
+/* Media Queries */
+@media (max-width: 768px) {
+    body,
+    html {
+        overflow: hidden !important; 
+        max-width: 100%; /* Set to a valid width */
+    }
+    p, span{
+        padding: 30px;
+    }
+    
+}

@@ -19,7 +19,6 @@ html {
     position: relative; /* Establish a positioning context for the content */
 }
 span{
-    font-family: cursive;
     position: absolute;
     top: 20px;
     left: 0;

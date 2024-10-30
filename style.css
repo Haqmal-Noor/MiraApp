@@ -75,7 +75,7 @@ font-family: cursive;
 .star {
     position: absolute;
     bottom: 0;
-    width: 12px;
+    width: 6px;
     height: 6px;
     background: rgba(255, 255, 255, 0.9);
     border-radius: 50%;
